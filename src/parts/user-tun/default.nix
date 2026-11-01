@@ -37,9 +37,10 @@ let
         find-process-mode = "strict";
       }
       {
-        name = "socks-in";
+        name = "mixed-in";
         type = "mixed";
-        listen = "127.0.0.1:${toString mihomoSocksPort}";
+        port = mihomoSocksPort;
+        listen = "127.0.0.1";
       }
     ];
     proxies = map (u: {
@@ -56,7 +57,7 @@ let
       }
     ];
     rules =
-      [ "IN-NAME,socks-in,DIRECT" ]
+      [ "IN-NAME,mixed-in,DIRECT" ]
       ++ map (u: "UID,${u.uid},user-${u.uid}") users
       ++ [ "MATCH,others" ];
   };
