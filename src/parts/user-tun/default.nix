@@ -79,7 +79,7 @@ let
           nodes = [
             {
               name = "user-sock";
-              addr = u.socketDirectory;
+              addr = "${u.socketDirectory}/sock";
               connector = { type = "unix"; };
               dialer = { type = "unix"; };
             }
@@ -104,7 +104,7 @@ in
     tunMode = true;
     processesInfo = true;
     configFile = mihomoConfig;
-    extraOpts = "-ext-ctl-unix ${controllerDirectory}/mihomo.sock";
+    extraOpts = "-ext-ctl-unix ${controllerDirectory}/sock";
   };
 
   systemd.services.user-tun-gost = {
