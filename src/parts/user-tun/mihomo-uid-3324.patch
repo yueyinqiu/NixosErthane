@@ -1,0 +1,33 @@
+diff --git a/rules/common/uid.go b/rules/common/uid.go
+index 535565c52f..9a7d0e36ac 100644
+--- a/rules/common/uid.go
++++ b/rules/common/uid.go
+@@ -49,8 +49,9 @@ func (u *Uid) Match(metadata *C.Metadata, helper C.RuleMatchHelper) (bool, strin
+ 		if u.uids.Check(metadata.Uid) {
+ 			return true, u.adapter
+ 		}
++	} else {
++		log.Warnln("[UID] could not get uid from %s", metadata.String())
+ 	}
+-	log.Warnln("[UID] could not get uid from %s", metadata.String())
+ 	return false, ""
+ }
+ 
+diff --git a/tunnel/tunnel.go b/tunnel/tunnel.go
+index 86dbc14ae4..162e597ea9 100644
+--- a/tunnel/tunnel.go
++++ b/tunnel/tunnel.go
+@@ -354,12 +354,12 @@ func resolveMetadata(metadata *C.Metadata) (proxy C.Proxy, rule C.Rule, err erro
+ 				if !features.CMFA {
+ 					// normal check for process
+ 					uid, path, err := process.FindProcessName(metadata.NetWork.String(), metadata.SrcIP, int(metadata.SrcPort))
++					metadata.Uid = uid
+ 					if err != nil {
+ 						log.Debugln("[Process] find process error for %s: %v", metadata.String(), err)
+ 					} else {
+ 						metadata.Process = filepath.Base(path)
+ 						metadata.ProcessPath = path
+-						metadata.Uid = uid
+ 
+ 						if pkg, err := process.FindPackageName(metadata); err == nil { // for android (not CMFA) package names
+ 							metadata.Process = pkg

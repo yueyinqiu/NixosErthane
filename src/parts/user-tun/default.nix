@@ -101,6 +101,10 @@ in
     processesInfo = true;
     configFile = mihomoConfig;
     extraOpts = "-ext-ctl-unix ${controllerDirectory}/sock";
+    # 补丁：修复 FindProcessName 在 path 查找失败时丢弃 uid（PR #3324）
+    package = pkgs.mihomo.overrideAttrs (old: {
+      patches = (old.patches or []) ++ [ ./mihomo-uid-3324.patch ];
+    });
   };
 
   systemd.services.user-tun-gost = {
