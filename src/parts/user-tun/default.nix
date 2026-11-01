@@ -14,7 +14,7 @@ let
 
   users = lib.mapAttrsToList (name: port:
     let
-      uid = config.users.users.${name}.uid;
+      uid = toString config.users.users.${name}.uid;
     in
     {
       name = name;
@@ -39,7 +39,7 @@ let
       {
         name = "socks-in";
         type = "mixed";
-        listen = "127.0.0.1:${mihomoSocksPort}";
+        listen = "127.0.0.1:${toString mihomoSocksPort}";
       }
     ];
     proxies = map (u: {
@@ -64,7 +64,7 @@ let
   gostSystemConfig = yaml.generate "gost-system.yaml" {
     services = map (u: {
       name = "user-${u.uid}";
-      addr = "127.0.0.1:${u.port}";
+      addr = "127.0.0.1:${toString u.port}";
       handler = { type = "tcp"; chain = "to-${u.uid}"; };
       listener = { type = "tcp"; };
     }) users;
