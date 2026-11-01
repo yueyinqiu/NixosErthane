@@ -105,7 +105,7 @@ in
 
   systemd.services.user-tun-gost = {
     wantedBy = [ "multi-user.target" ];
-    after = [ "network-online.target" "mihomo.service" ];
+    after = [ "mihomo.service" ];
     serviceConfig = {
       ExecStart = "${pkgs.gost}/bin/gost -C ${gostSystemConfig}";
       Restart = "on-failure";
