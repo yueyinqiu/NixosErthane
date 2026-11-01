@@ -65,7 +65,7 @@ let
     services = map (u: {
       name = "user-${u.uid}";
       addr = "127.0.0.1:${u.port}";
-      handler = { type = "socks5"; chain = "to-${u.uid}"; };
+      handler = { type = "tcp"; chain = "to-${u.uid}"; };
       listener = { type = "tcp"; };
     }) users;
     chains = map (u: {
@@ -77,7 +77,7 @@ let
             {
               name = "user-sock";
               addr = u.socketDirectory;
-              connector = { type = "socks5"; };
+              connector = { type = "unix"; };
               dialer = { type = "unix"; };
             }
           ];
