@@ -27,17 +27,16 @@ let
   mihomoConfig = yaml.generate "mihomo-config.yaml" {
     mode = "rule";
     log-level = "info";
+    tun = {
+      enable = true;
+      stack = "mips";
+      auto-route = true;
+      auto-detect-interface = true;
+      find-process-mode = "strict";
+      inet4-address = [ "198.19.0.1/30" ];
+      inet6-address = [ "fdfe:dcba:9877::1/126" ];
+    };
     listeners = [
-      {
-        name = "tun-in";
-        type = "tun";
-        stack = "system";
-        auto-route = true;
-        auto-detect-interface = true;
-        find-process-mode = "strict";
-        inet4-address = [ "198.19.0.1/30" ];
-        inet6-address = [ "fdfe:dcba:9877::1/126" ];
-      }
       {
         name = "mixed-in";
         type = "mixed";
