@@ -27,6 +27,11 @@ let
   mihomoConfig = yaml.generate "mihomo-config.yaml" {
     mode = "rule";
     log-level = "info";
+    dns = {
+      enable = true;
+      enhanced-mode = "fake-ip";
+      fake-ip-range = "198.18.0.1/16";
+    };
     tun = {
       enable = true;
       stack = "mips";
