@@ -14,8 +14,6 @@
     # "https://mirror.sjtu.edu.cn/nix-channels/store"
   ];
 
-  nix.settings.trusted-users = [ "yueyinqiu" ];
-
   nix.settings.trusted-substituters = [
     "https://yueyinqiu.cachix.org"
     "https://nix-community.cachix.org"
