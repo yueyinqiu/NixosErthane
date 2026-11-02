@@ -9,6 +9,8 @@
   };
 
   inputs = {
+    import-tree.url = "github:denful/import-tree";
+
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nix-daemon-proxy.url = "github:yueyinqiu/NixDaemonProxy-Nix";
   };
@@ -24,7 +26,7 @@
         };
         modules = [
           inputs.nix-daemon-proxy.nixosModules.nix-daemon-proxy
-          ./src
+          (inputs.import-tree ./src)
         ];
       };
 
