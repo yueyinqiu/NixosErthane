@@ -1,6 +1,4 @@
-{
-  ...
-}:
+{ ... }:
 {
   programs.fuse.enable = true;
 }

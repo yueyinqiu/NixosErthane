@@ -1,9 +1,10 @@
-
-{...}: {
+{ ... }:
+{
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
   ];
+
   nix.settings.substituters = [
     "https://mirror.nju.edu.cn/nix-channels/store"
     "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
@@ -12,6 +13,7 @@
     # "https://mirrors.cqupt.edu.cn/nix-channels/store"
     # "https://mirror.sjtu.edu.cn/nix-channels/store"
   ];
+
   nix.settings.trusted-users = [ "yueyinqiu" ];
 
   nix.settings.trusted-substituters = [
@@ -22,6 +24,7 @@
     "https://niri.cachix.org"
     "https://numtide.cachix.org"
   ];
+
   nix.settings.trusted-public-keys = [
     "yueyinqiu.cachix.org-1:iooLFYpS7e6KAU4+QM5Zoj6Tq76jRGo+kjeAbu8JxAc="
     "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="

@@ -1,8 +1,7 @@
-{
-  ...
-}:
+{ ... }:
 {
   boot.zswap.enable = true;
+
   swapDevices = [
     {
       device = "/swapfile";
