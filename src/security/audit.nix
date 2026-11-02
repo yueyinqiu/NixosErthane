@@ -17,6 +17,8 @@
     "/etc/udev"
     "/etc/sysctl.d"
     "/etc/tmpfiles.d"
+    "/etc/polkit-1"
+    "/etc/binfmt.d"
     "/root"
   ];
 }
