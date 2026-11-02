@@ -12,7 +12,6 @@
       "libvirtd"
       "libvirt"
       "kvm"
-      "nix-daemon-proxy"
       "user-tun-controller"
     ];
   };
