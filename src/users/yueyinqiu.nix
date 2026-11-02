@@ -1,6 +1,37 @@
 { config, ... }:
 let
   home = config.users.users.yueyinqiu.home;
+
+  watched = [
+    {
+      path = ".config/systemd/user";
+      mode = "0755";
+    }
+    {
+      path = ".local/share/systemd/user";
+      mode = "0755";
+    }
+    {
+      path = ".config/autostart";
+      mode = "0755";
+    }
+    {
+      path = ".config/environment.d";
+      mode = "0755";
+    }
+    {
+      path = ".local/share/applications";
+      mode = "0755";
+    }
+    {
+      path = ".local/share/nix";
+      mode = "0755";
+    }
+    {
+      path = ".ssh";
+      mode = "0700";
+    }
+  ];
 in
 {
   users.users.yueyinqiu = {
@@ -13,15 +44,7 @@ in
     ];
   };
 
-  security.audit.rules = [
-    "-w ${home}/.config/systemd/user -p wa -k yueyinqiu_systemd"
-    "-w ${home}/.local/share/nix -p wa -k yueyinqiu_nix"
-    "-w ${home}/.config/autostart -p wa -k yueyinqiu_autostart"
-  ];
+  security.audit.rules = map (w: "-w ${home}/${w.path} -p wa -k yueyinqiu") watched;
 
-  systemd.tmpfiles.rules = [
-    "d ${home}/.config/systemd/user 0755 yueyinqiu users -"
-    "d ${home}/.local/share/nix 0755 yueyinqiu users -"
-    "d ${home}/.config/autostart 0755 yueyinqiu users -"
-  ];
+  systemd.tmpfiles.rules = map (w: "d ${home}/${w.path} ${w.mode} yueyinqiu users -") watched;
 }
