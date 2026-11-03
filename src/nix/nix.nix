@@ -23,6 +23,7 @@
     "https://numtide.cachix.org"
     "https://niri-epireyn.cachix.org"
     "https://nix-gaming.cachix.org"
+    "https://deepseek-harness-nix.cachix.org"
   ];
 
   nix.settings.trusted-public-keys = [
@@ -34,5 +35,6 @@
     "numtide.cachix.org-1:2ps1kLBUWjxIneOy1Ik6cQjb41X0iXVXeHigGmycPPE="
     "niri-epireyn.cachix.org-1:tlVyFN7CtsDT+ZcLPS+ekFWeT1X6X4OqvWqbBMyIzFA="
     "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
+    "deepseek-harness-nix.cachix.org-1:5NrkwLN9veNMhiINtU5ZeV4isXFhFsOwn6Ms7J1M+TA="
   ];
 }
