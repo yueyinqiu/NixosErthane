@@ -21,6 +21,8 @@
     "https://nvf.cachix.org"
     "https://niri.cachix.org"
     "https://numtide.cachix.org"
+    "https://niri-epireyn.cachix.org"
+    "https://nix-gaming.cachix.org"
   ];
 
   nix.settings.trusted-public-keys = [
@@ -30,5 +32,7 @@
     "nvf.cachix.org-1:GMQWiUhZ6ux9D5CvFFMwnc2nFrUHTeGaXRlVBXo+naI="
     "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
     "numtide.cachix.org-1:2ps1kLBUWjxIneOy1Ik6cQjb41X0iXVXeHigGmycPPE="
+    "niri-epireyn.cachix.org-1:tlVyFN7CtsDT+ZcLPS+ekFWeT1X6X4OqvWqbBMyIzFA="
+    "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
   ];
 }
