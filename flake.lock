@@ -101,7 +101,23 @@
         "import-tree": "import-tree",
         "nix-daemon-proxy": "nix-daemon-proxy",
         "nixos-hardware": "nixos-hardware",
-        "nixpkgs": "nixpkgs_3"
+        "nixpkgs": "nixpkgs_3",
+        "user-tun": "user-tun"
+      }
+    },
+    "user-tun": {
+      "locked": {
+        "lastModified": 1794223118,
+        "narHash": "sha256-9NpmcOJ4MJ4O1ZPO+pI8tWHajEyVzd6XseZ+72vYF1Y=",
+        "owner": "yueyinqiu",
+        "repo": "UserTun",
+        "rev": "a67aa96dc9e726eb2b2f0b54b56083d68e82029f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "yueyinqiu",
+        "repo": "UserTun",
+        "type": "github"
       }
     }
   },
