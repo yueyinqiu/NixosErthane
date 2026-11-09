@@ -14,6 +14,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nix-daemon-proxy.url = "github:yueyinqiu/NixDaemonProxy-Nix";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
+    user-tun.url = "github:yueyinqiu/UserTun";
   };
 
   outputs = inputs: {
@@ -28,6 +29,7 @@
         modules = [
           inputs.nix-daemon-proxy.nixosModules.nix-daemon-proxy
           inputs.nixos-hardware.nixosModules.dell-latitude-7490
+          inputs.user-tun.nixosModules.user-tun
           (inputs.import-tree ./src)
         ];
       };
