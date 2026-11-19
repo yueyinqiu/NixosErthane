@@ -3,9 +3,6 @@
     extra-substituters = [
       "https://yueyinqiu.cachix.org"
     ];
-    extra-trusted-public-keys = [
-      "yueyinqiu.cachix.org-1:iooLFYpS7e6KAU4+QM5Zoj6Tq76jRGo+kjeAbu8JxAc="
-    ];
   };
 
   inputs = {

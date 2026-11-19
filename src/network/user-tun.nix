@@ -4,6 +4,4 @@
     enable = true;
     upstreamPort = 16884;
   };
-
-  services.openssh.enable = true;
 }
