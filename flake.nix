@@ -9,7 +9,7 @@
     import-tree.url = "github:denful/import-tree";
 
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nix-daemon-proxy.url = "github:yueyinqiu/NixDaemonProxy-Nix";
+    nix-daemon-proxy-switchboard.url = "github:yueyinqiu/NixDaemonProxySwitchboard";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     user-tun.url = "github:yueyinqiu/UserTun";
   };
@@ -24,7 +24,7 @@
         specialArgs = {
         };
         modules = [
-          inputs.nix-daemon-proxy.nixosModules.nix-daemon-proxy
+          inputs.nix-daemon-proxy-switchboard.nixosModules.nix-daemon-proxy-switchboard
           inputs.nixos-hardware.nixosModules.dell-latitude-7490
           inputs.user-tun.nixosModules.user-tun
           (inputs.import-tree ./src)
