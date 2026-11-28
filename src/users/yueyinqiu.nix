@@ -82,7 +82,7 @@ in
     ];
   };
 
-  security.audit.rules = map (w: "-w ${home}/${w.path} -p wa -k yueyinqiu") (builtins.filter (d: d.watch));
+  security.audit.rules = map (w: "-w ${home}/${w.path} -p wa -k yueyinqiu") (builtins.filter (d: d.watch) audit);
 
   systemd.tmpfiles.rules = map (w: "d ${home}/${w.path} ${w.mode} yueyinqiu users -") audit;
 }
