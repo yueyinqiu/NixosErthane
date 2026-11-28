@@ -2,34 +2,72 @@
 let
   home = config.users.users.yueyinqiu.home;
 
-  watched = [
+  audit = [
     {
-      path = ".config/systemd/user";
+      path = ".config";
       mode = "0755";
-    }
-    {
-      path = ".local/share/systemd/user";
-      mode = "0755";
+      watch = false;
     }
     {
       path = ".config/autostart";
       mode = "0755";
+      watch = true;
     }
     {
       path = ".config/environment.d";
       mode = "0755";
+      watch = true;
+    }
+    {
+      path = ".config/systemd";
+      mode = "0755";
+      watch = false;
+    }
+    {
+      path = ".config/systemd/user";
+      mode = "0755";
+      watch = true;
+    }
+
+    {
+      path = ".local";
+      mode = "0755";
+      watch = false;
+    }
+    {
+      path = ".local/share";
+      mode = "0755";
+      watch = false;
+    }
+    {
+      path = ".local/share/dbus-1";
+      mode = "0755";
+      watch = false;
+    }
+    {
+      path = ".local/share/dbus-1/services";
+      mode = "0755";
+      watch = true;
     }
     {
       path = ".local/share/applications";
       mode = "0755";
+      watch = true;
     }
     {
       path = ".local/share/nix";
       mode = "0755";
+      watch = true;
     }
     {
-      path = ".ssh";
-      mode = "0700";
+      path = ".local/share/systemd";
+      mode = "0755";
+      watch = false;
+    }
+    {
+      path = ".local/share/systemd/user";
+      mode = "0755";
+      watch = true;
     }
   ];
 in
@@ -44,7 +82,7 @@ in
     ];
   };
 
-  security.audit.rules = map (w: "-w ${home}/${w.path} -p wa -k yueyinqiu") watched;
+  security.audit.rules = map (w: "-w ${home}/${w.path} -p wa -k yueyinqiu") (builtins.filter (d: d.watch));
 
-  systemd.tmpfiles.rules = map (w: "d ${home}/${w.path} ${w.mode} yueyinqiu users -") watched;
+  systemd.tmpfiles.rules = map (w: "d ${home}/${w.path} ${w.mode} yueyinqiu users -") audit;
 }
